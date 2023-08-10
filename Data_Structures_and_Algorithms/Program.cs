@@ -1,5 +1,7 @@
 ﻿using Data_Structures_and_Algorithms.ADT;
 using System;
+using System.Data;
+using System.Threading;
 
 namespace Data_Structures_and_Algorithms
 {
@@ -7,7 +9,23 @@ namespace Data_Structures_and_Algorithms
     {
         static void Main(string[] args)
         {
-            Pokemon squirtle = new Pokemon();
+            Stack stack = new Stack(10);
+
+            for(int i = 0; i < 3; i++)
+            {
+                stack.Push("Squirtle");
+                stack.Push("Pikachu");
+                stack.Push("Charmander");
+            }
+            stack.Pop();
+            stack.Peek();
+
+            while (!stack.isEmpty())
+            {
+                var var = stack.Pop();
+                Console.WriteLine(var);
+            }
+
         }
     }
 }
