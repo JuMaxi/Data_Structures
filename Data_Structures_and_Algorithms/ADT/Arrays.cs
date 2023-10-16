@@ -19,13 +19,34 @@ namespace Data_Structures_and_Algorithms.ADT
 
         public void RunArray()
         {
-            for (int i = 0; i > 3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                array[length] = i;
+                array[length] = i + 1;
                 length++;
             }
         }
+
+        //Inserting at the start of an array 
+        public void InsertInitialArray()
+        {
+            for(int i = 3; i <= 0; i--)
+            {
+                array[i + 1] = array[i];
+            }
+
+            array[0] = 8;
+        }
         
+        public void InsertAnyWhereArray()
+        {
+            //Shift each element um position to the right
+            for(int i = 4; i >= 2; i--)
+            {
+                array[i + 1] = array[i];
+            }
+
+            array[2] = 8;
+        }
 
       
     }

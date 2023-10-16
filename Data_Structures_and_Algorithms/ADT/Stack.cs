@@ -16,6 +16,9 @@ namespace Data_Structures_and_Algorithms.ADT
 
         public Stack(int size) 
         { 
+
+            
+
             //This holds constructor value
             this.MaxSize = size;
             //Creates array e size.
@@ -47,12 +50,13 @@ namespace Data_Structures_and_Algorithms.ADT
 
         public bool isEmpty()
         {
-            return Top == 0;
+            return Top == -1;
         }
         public bool isFull()
         {
             return (MaxSize - 1 == Top);
         }
 
+        
     }
 }
