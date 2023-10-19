@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Threading;
+using System.Collections.Generic;
 
 namespace Data_Structures_and_Algorithms
 {
@@ -9,53 +10,131 @@ namespace Data_Structures_and_Algorithms
     {
         static void Main(string[] args)
         {
-            //Stack stack = new Stack(10);
-            Stack stack1 = new Stack(10);
-            Stack stack2 = new Stack(10);
-            Stack stack3 = new Stack(10);
 
-            stack1.Push("[Z]");
-            stack1.Push("[N]");
-            stack1.Push("[D]");
+            //Node nodeA = new Node();
+            //nodeA.Data = 865;
 
-            stack2.Push("[M]");
-            stack2.Push("[C]");
+            //Node nodeB = new Node();
+            //nodeB.Data = 344;
 
-            stack3.Push("[P]");
+            //Node nodeC = new Node();
+            //nodeC.Data = 888;
 
-            //remove 1 from 2 to 1
-            var item = stack2.Pop();
-            stack1.Push(item);
+            //Node nodeD = new Node();
+            //nodeD.Data = 222;
 
-            PrintStack(stack1);
-            PrintStack(stack2);
-            PrintStack(stack3);
+            //nodeA.Next = nodeB;
+            //nodeB.Next = nodeC;
+            //nodeC.Next = nodeD;
 
-            //for(int i = 0; i < 3; i++)
-            //{
-            //    stack.Push("Squirtle");
-            //    stack.Push("Pikachu");
-            //    stack.Push("Charmander");
+            
+            Node firstElement = new() { Data = 100 };
+
+            AddItem(firstElement, 200);
+            AddItem(firstElement, 300);
+            AddItem(firstElement, 400);
+            AddItem(firstElement, 500);
+            AddItem(firstElement, 600);
+            AddItem(firstElement, 700);
+
+            PrintLinkedList(firstElement); // Print all elements in the list, one by line
+
+            int totalItems = CountLinkedList(firstElement);
+            Console.WriteLine(" ");
+            Console.WriteLine($"The list contains {totalItems} items.");
+
+
+
+
+
+            //    //Stack stack = new Stack(10);
+            //    Stack stack1 = new Stack(10);
+            //    Stack stack2 = new Stack(10);
+            //    Stack stack3 = new Stack(10);
+
+            //    stack1.Push("[Z]");
+            //    stack1.Push("[N]");
+            //    stack1.Push("[D]");
+
+            //    stack2.Push("[M]");
+            //    stack2.Push("[C]");
+
+            //    stack3.Push("[P]");
+
+            //    //remove 1 from 2 to 1
+            //    var item = stack2.Pop();
+            //    stack1.Push(item);
+
+            //    PrintStack(stack1);
+            //    PrintStack(stack2);
+            //    PrintStack(stack3);
+
+            //    //for(int i = 0; i < 3; i++)
+            //    //{
+            //    //    stack.Push("Squirtle");
+            //    //    stack.Push("Pikachu");
+            //    //    stack.Push("Charmander");
+            //    //}
+            //    //stack.Pop();
+            //    //stack.Peek();
+
+            //    //while (!stack.isEmpty())
+            //    //{
+            //    //    var var = stack.Pop();
+            //    //    Console.WriteLine(var);
+            //    //}
+
             //}
-            //stack.Pop();
-            //stack.Peek();
 
-            //while (!stack.isEmpty())
+            //private static void PrintStack(Stack stack)
             //{
-            //    var var = stack.Pop();
-            //    Console.WriteLine(var);
+            //    while (!stack.isEmpty())
+            //    {
+            //        var var = stack.Pop();
+            //        Console.WriteLine(var);
+            //    }
+            //    Console.WriteLine("");
             //}
-
         }
 
-        private static void PrintStack(Stack stack)
+        
+        private static void AddItem(Node firstElement, int value)
         {
-            while (!stack.isEmpty())
+            Node temp = firstElement;
+            while (temp.Next != null)
             {
-                var var = stack.Pop();
-                Console.WriteLine(var);
+                temp = temp.Next;
             }
-            Console.WriteLine("");
+            temp.Next = new Node() { Data = value };
         }
+
+        private static void PrintLinkedList(Node firstElement)
+        {
+            Node temp = firstElement;
+
+            while(temp.Next != null)
+            {
+                Console.WriteLine("The data is: " + temp.Data);
+                temp = temp.Next;
+            }
+            Console.WriteLine("The data is: " + temp.Data);
+        }
+
+        private static int CountLinkedList(Node firstElement)
+        {
+            int count = 1;
+
+            Node temp = firstElement;
+
+            while(temp.Next != null)
+            {
+                count++;
+                temp = temp.Next;
+            }
+
+            return count;
+        }
+
+
     }
 }

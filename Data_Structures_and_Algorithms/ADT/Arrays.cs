@@ -48,6 +48,68 @@ namespace Data_Structures_and_Algorithms.ADT
             array[2] = 8;
         }
 
+        //Arrays
+        //Deletions
+
+        int[] intArray = new int[9];
+
+        int l = 0;
+
+        public void DeleteFromEndArray()
+        {
+            for(int i = 0; i < 6; i++)
+            {
+                intArray[l] = i;
+                l++;
+            }
+
+            l--;
+
+            for(int i = 0; i < l; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
+        }
+
+       
+        public void DeleteFromStartArray()
+        {
+            for(int i = 1; i < 6; i++)
+            {
+                intArray[i - 1] = array[i];
+            }
+
+            l--;
+        }
+
+        public void DeleteFromAnywhereArray()
+        {
+            //o valor do i aqui, e a posicao que voce quer excluir.
+            for(int i = 2; i < l; i++)
+            {
+                intArray[i - 1] = intArray[i];
+            }
+
+            l--;
+        }
+
+        //Linear search array
+
+        int[] arraySearch = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 ,10};
+
+        //key means what value we are searching for
+        bool LinearSearch(int[] arraySearch, int key)
+        {
+            for(int i = 0; i < arraySearch.Length; i++)
+            {
+                if (arraySearch[i] == key) return true;
+            }
+            return false;
+        }
       
+        public void write()
+        {
+            Console.WriteLine(LinearSearch(arraySearch, 0));
+        }
     }
 }
